@@ -1,6 +1,9 @@
 import { useState } from 'react'
 import './App.css'
 import MovieCard from './components/MovieCard'
+import Home from './pages/Home';
+import { Route, Routes } from 'react-router-dom';
+import Favorites from './pages/Favorites';
 
 function App() {
 
@@ -12,12 +15,12 @@ function App() {
 
   return (
     <>
-      {movieNumber === 2 ? (
-        <MovieCard movie={{ title: "Peter", release_date: "2024" }} />
-      ) : (
-        <MovieCard movie={{ title: "wikiwiki", release_date: "2024" }} />
-      )
-      }
+      <main className='main-contain'>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/favorites" element={<Favorites />} />
+        </Routes>
+      </main>
     </>
   )
 }
